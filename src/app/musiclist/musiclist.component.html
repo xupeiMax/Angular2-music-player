@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let musicitem of musiclist">
+    <app-musiclistitem [musicitem]="musicitem" [currentMusicItem]="currentMusicItem"  (outer)="delete($event)" (outerCurrent)="changeCurrent($event)"></app-musiclistitem>
+  </li>
+</ul>
+

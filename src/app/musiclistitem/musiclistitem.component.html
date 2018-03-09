@@ -1,0 +1,4 @@
+<div *ngIf="musicitem" class="component-musiclistitem row" [class.focus]="musicitem === currentMusicItem" (click)="toPlay(musicitem)">
+  <p><strong>{{musicitem.title}}</strong> - {{musicitem.artist}}</p>
+  <p class="-col-auto delete" (click)="delete(musicitem)"></p>
+</div>

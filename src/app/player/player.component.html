@@ -1,0 +1,37 @@
+<div class="player-page">
+  <h1 class="caption">
+    <a routerLink="/musiclist">我的私人音乐坊 &gt;</a>
+  </h1>
+  <div class="mt20 row">
+    <div class="controll-wrapper" >
+      <h2 class="music-title">{{currentMusicItem.title}}</h2>
+      <h3 class="music-artist">{{currentMusicItem.artist}}</h3>
+      <div class="row mt20">
+        <div class="left-time -col-auto">-{{leftTime}}</div>
+        <div class="volume-container">
+          <i class="icon-volume rt" style="top: 5px;left: -5px"></i>
+          <div class="volume-wrapper">
+            <app-progress [progress]="volume" (outer)="volumeHandler($event)" [barColor]="'#aaa'"></app-progress>
+          </div>
+        </div>
+      </div>
+      <div style="height: 10px;line-height: 10px;margin-top: 10px">
+        <app-progress [progress]="progress" (outer)="receive($event)"></app-progress>
+      </div>
+      <div class="mt35 row">
+        <div>
+          <i class="icon prev" (click)="playNext('prev')"></i>
+          <i class="icon ml20" [ngClass]="{pause: isPlay, play: !isPlay}" (click)="playOrPause()"></i>
+          <i class="icon next ml20" (click)="playNext('next')"></i>
+        </div>
+        <div class="-col-auto">
+          <i class="icon" [ngClass]="'repeat-'+ repeat[0]" (click)="repeatStyle()"></i>
+        </div>
+      </div>
+    </div>
+    <div class="-col-auto cover">
+      <img class="music-pic" src="{{currentMusicItem.cover}}" alt="歌曲名称" />
+    </div>
+  </div>
+</div>
+
